@@ -1,0 +1,35 @@
+GET http://localhost:5000/api/v1/ HTTP/1.1
+
+###
+
+GET http://localhost:5000/api/v1/tasks HTTP/1.1
+
+###
+GET http://localhost:5000/api/v1/tasks?finish=true&order=des HTTP/1.1
+
+###
+
+POST http://localhost:5000/api/v1/tasks HTTP/1.1
+content-type: application/json
+
+{
+    "description": "task2"
+}
+
+###
+PUT http://localhost:5000/api/v1/tasks/67931f69cf57294a8b6cc0ea HTTP/1.1
+content-type: application/json
+
+{
+    "description": "task123 edit",
+    "finish": true
+}
+
+###
+DELETE http://localhost:5000/api/v1/tasks/6793146559b5705b910f7ff3 HTTP/1.1
+
+###
+GET http://localhost:5000/api/v1/tasks/sudo HTTP/1.1
+
+# 6793146559b5705b910f7ff3
+# 67931f69cf57294a8b6cc0ea
