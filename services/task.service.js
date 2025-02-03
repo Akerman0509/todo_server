@@ -31,7 +31,7 @@ class taskService {
             // Convert 'true'/'false' strings to boolean
             mongoFilter.finish = filters.finish === "true";
         }
-        console.log(mongoFilter);
+        // console.log(mongoFilter);
         const pipeline = [
             {
                 $match: mongoFilter,
