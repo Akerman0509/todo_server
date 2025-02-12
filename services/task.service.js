@@ -30,6 +30,9 @@ class taskService {
         // console.log(filters);
         // Prepare dynamic filter
         const mongoFilter = {};
+        if (filters.priority) {
+            mongoFilter.priority = filters.priority;
+        }
         if (filters.finish) {
             // Convert 'true'/'false' strings to boolean
             mongoFilter.finish = filters.finish === "true";
@@ -86,10 +89,12 @@ class taskService {
 
     async createSudoTask() {
         let array = [true, false];
+        let priority = ["high", "medium", "low"];
         for (let i = 0; i < 10; i++) {
             const task = {
                 description: `Task ${i}`,
                 finish: Math.floor(Math.random() * 2),
+                priority: priority[Math.floor(Math.random() * 3)],
                 createdAt: new Date(),
                 updatedAt: new Date(),
             };

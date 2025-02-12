@@ -24,7 +24,12 @@ const taskSchema = new Schema(
         },
         due_date: {
             type: Date,
-        }
+        },
+        priority: {
+            type: String,
+            enum: ["low", "medium", "high"],
+            default: "low",
+        },
     },
     {
         versionKey: false,

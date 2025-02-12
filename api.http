@@ -5,7 +5,7 @@ GET http://localhost:5000/api/v1/ HTTP/1.1
 GET http://localhost:5000/api/v1/tasks HTTP/1.1
 
 ###
-GET http://localhost:5000/api/v1/tasks?finish=&due_date=&order=asc HTTP/1.1
+GET http://localhost:5000/api/v1/tasks?finish=&due_date=&priority=low&order=asc HTTP/1.1
 
 ###
 
@@ -13,18 +13,20 @@ POST http://localhost:5000/api/v1/tasks HTTP/1.1
 content-type: application/json
 
 {
-    "description": "test due_date2",
-    "due_date": "2024-02-11" 
+    "description": "test due_date1 2",
+    "due_date": "2024-02-11" ,
+    "priority": "high" 
 }
 
 ###
-PUT http://localhost:5000/api/v1/tasks/67ac608cc284edefa3ad584b HTTP/1.1
+PUT http://localhost:5000/api/v1/tasks/67acb66c6087cfc3f8da9afc HTTP/1.1
 content-type: application/json
 
 {
-    "description": "test due_date2 edit",
+    "description": "test due_date1 edit",
     "finish": true,
-    "due_date": "2024-02-20"    
+    "due_date": "2024-02-20"    ,
+    "priority": "medium"
 }
 
 ###

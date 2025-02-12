@@ -21,6 +21,7 @@ exports.getTasks = asyncHandler(async (req, res) => {
             finish: req.query.finish,
             order: req.query.order,
             due_date: req.query.due_date,
+            priority: req.query.priority,  
         };
         const tasks = await taskService.getTasks(
             Object.fromEntries(
