@@ -22,6 +22,9 @@ const taskSchema = new Schema(
         finish: {
             type: Boolean,
         },
+        due_date: {
+            type: Date,
+        }
     },
     {
         versionKey: false,

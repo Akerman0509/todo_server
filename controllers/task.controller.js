@@ -20,6 +20,7 @@ exports.getTasks = asyncHandler(async (req, res) => {
         const filters = {
             finish: req.query.finish,
             order: req.query.order,
+            due_date: req.query.due_date,
         };
         const tasks = await taskService.getTasks(
             Object.fromEntries(

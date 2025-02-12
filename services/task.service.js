@@ -10,6 +10,9 @@ class taskService {
         if (!task["description"]) {
             throw new Error("[Error][Missing] Task description is required");
         }
+        // if (!task["due_date"]) {
+        //     throw new Error("[Error][Missing] Task due_date is required");
+        // }
     }
     async createTasks(task) {
         this.validateTaskInput(task);
@@ -24,14 +27,24 @@ class taskService {
         return newTask;
     }
     async getTasks(filters) {
-        console.log(filters);
+        // console.log(filters);
         // Prepare dynamic filter
         const mongoFilter = {};
         if (filters.finish) {
             // Convert 'true'/'false' strings to boolean
             mongoFilter.finish = filters.finish === "true";
         }
-        // console.log(mongoFilter);
+        if (filters.due_date) {
+            const startDate = new Date(filters.due_date); 
+            const endDate = new Date(startDate);
+            endDate.setUTCDate(startDate.getUTCDate() + 1); 
+        
+            mongoFilter.due_date = {
+                $gte: startDate, // Start of the given day
+                $lt: endDate,    // Before the next day
+            };
+        }
+        console.log("filters", mongoFilter);
         const pipeline = [
             {
                 $match: mongoFilter,
