@@ -22,6 +22,10 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+app.get("/", (req, res) => {
+  res.send("Hello from backend server!");
+});
 // Routes
 app.use("/api/v1", routes);
 
