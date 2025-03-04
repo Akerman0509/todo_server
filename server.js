@@ -30,6 +30,6 @@ app.get("/", (req, res) => {
 app.use("/api/v1", routes);
 
 // Start the server
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, "0.0.0.0", () => {
   console.log(`Server is on http://localhost:${process.env.PORT}`);
 });
